@@ -1,48 +1,17 @@
-<script context="module">
-	export async function load({ fetch }) {
-		const res = await fetch('http://localhost:3000/posts');
-		const guides = await res.json();
-
-		if (res.ok) {
-			return {
-				props: {
-					guides
-				}
-			};
-		}
-		return {
-			status: res.status,
-			error: new Error('Could not fetch guides')
-		};
-	}
-</script>
-
-<script>
-	export let guides;
-</script>
-
-<div class="guides">
-	<ul>
-		{#each guides as guide}
-			<li>
-				<a href={`/guides/${guide.id}`}>{guide.title}</a>
-			</li>
-		{/each}
-	</ul>
+<div class="index">
+	<h2>Welcome</h2>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Error reprehenderit, aspernatur
+		praesentium, voluptatibus laudantium pariatur tenetur qui atque nobis odio facilis ipsum placeat
+		explicabo quia accusantium esse fugit quidem dolores. Lorem ipsum dolor sit amet consectetur
+		adipisicing.
+	</p>
 </div>
 
 <style>
-	.guides {
-		margin-top: 20px;
-	}
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	a {
-		display: inline-block;
-		margin-top: 10px;
-		padding: 10px;
-		border: 1px dotted rgba(255, 255, 255, 0.2);
+	.index {
+		text-align: center;
+		display: block;
+		margin: 20px auto;
 	}
 </style>
