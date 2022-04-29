@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts 'Seeding data... '
+
+puts 'Creating Posts ... '
+
+# Create 20 Post instances for seed data
+
+20.times { Post.create!(name: Faker::Name.name, title: Faker::Game.title, content: Faker::Lorem.paragraph) }
+
+puts 'Seeding done!'
